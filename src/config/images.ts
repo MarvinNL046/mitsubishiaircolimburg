@@ -1,20 +1,20 @@
 export const images = {
   hero: {
     main: "/images/ZS-wandunit_11zon.webp",
-    alt: "Mitsubishi Heavy Industries SRK-ZSX airconditioner in modern interieur"
+    alt: "Mitsubishi Heavy Industries SRK-ZS airconditioner in modern interieur"
   },
   products: {
     premium: {
       zsx: "/images/ZS-wandunit_11zon.webp",
-      alt: "Mitsubishi SRK-ZSX airconditioner"
+      alt: "Mitsubishi SRK-ZS airconditioner"
     },
     advanced: {
       zs: "/images/ZS-wandunit-metallic-zwart_11zon.webp",
-      alt: "Mitsubishi SRK-ZS airconditioner"
+      alt: "Mitsubishi SRK-ZS Metallic Black airconditioner"
     },
     power: {
-      zr: "/images/ZS-wandunit-wit-zwart_11zon",
-      alt: "Mitsubishi SRK-ZR airconditioner"
+      zr: "/images/ZS-wandunit-wit-zwart_11zon.webp",
+      alt: "Mitsubishi SRK-ZS White/Black airconditioner"
     }
   }
 } as const;
@@ -31,9 +31,9 @@ export type ProductImage = {
 
 export const productImages: ProductImage[] = [
   {
-    src: "/images/mitsubishi-srk-zsx.webp",
-    alt: "Mitsubishi SRK-ZSX",
-    title: "SRK-ZSX Series",
+    src: "/images/ZS-wandunit_11zon.webp",
+    alt: "Mitsubishi SRK-ZS",
+    title: "SRK-ZS Series",
     description: "Fluisterstille airco met geavanceerde sensortechnologie",
     price: "Vanaf €2.299,-",
     highlight: "Meest geavanceerde model",
@@ -46,9 +46,9 @@ export const productImages: ProductImage[] = [
     ]
   },
   {
-    src: "/images/mitsubishi-srk-zs.webp",
-    alt: "Mitsubishi SRK-ZS",
-    title: "SRK-ZS Series",
+    src: "/images/ZS-wandunit-metallic-zwart_11zon.webp",
+    alt: "Mitsubishi SRK-ZS Metallic Black",
+    title: "SRK-ZS Metallic Black",
     description: "Voldoet aan de hoogste technische kwaliteitsnormen",
     price: "Vanaf €1.999,-",
     features: [
@@ -60,9 +60,9 @@ export const productImages: ProductImage[] = [
     ]
   },
   {
-    src: "/images/mitsubishi-srk-zr.webp",
-    alt: "Mitsubishi SRK-ZR",
-    title: "SRK-ZR Series",
+    src: "/images/ZS-wandunit-wit-zwart_11zon.webp",
+    alt: "Mitsubishi SRK-ZS White/Black",
+    title: "SRK-ZS White/Black",
     description: "Speciaal ontwikkeld voor grotere ruimten",
     price: "Vanaf €1.799,-",
     highlight: "Beste voor grote ruimtes",
