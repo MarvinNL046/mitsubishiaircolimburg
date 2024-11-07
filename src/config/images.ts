@@ -1,19 +1,19 @@
 export const images = {
   hero: {
-    main: "/images/mitsubishi-srk-zsx.webp",
+    main: "/images/ZS-wandunit_11zon.webp",
     alt: "Mitsubishi Heavy Industries SRK-ZSX airconditioner in modern interieur"
   },
   products: {
     premium: {
-      zsx: "/images/mitsubishi-srk-zsx.webp",
+      zsx: "/images/ZS-wandunit_11zon.webp",
       alt: "Mitsubishi SRK-ZSX airconditioner"
     },
     advanced: {
-      zs: "/images/mitsubishi-srk-zs.webp",
+      zs: "/images/ZS-wandunit-metallic-zwart_11zon.webp",
       alt: "Mitsubishi SRK-ZS airconditioner"
     },
     power: {
-      zr: "/images/mitsubishi-srk-zr.webp",
+      zr: "/images/ZS-wandunit-wit-zwart_11zon",
       alt: "Mitsubishi SRK-ZR airconditioner"
     }
   }
