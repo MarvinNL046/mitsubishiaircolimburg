@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lgaircolimburg.nl/sitemap.xml
+
+# Prevent indexing of admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /checkout/
+Disallow: /cart/
+
+# Allow crawling of important content
+Allow: /werkgebied/
+Allow: /images/
+Allow: /contact/
