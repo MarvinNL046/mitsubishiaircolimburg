@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
-import { contactConfig } from "@/config/contact";
-import { emailConfig } from "@/config/email";
-import emailjs from "@emailjs/browser";
+import { sendEmail } from "@/utils/email";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const formSchema = z.object({
   name: z.string().min(2, "Naam moet minimaal 2 karakters bevatten"),
@@ -18,8 +18,7 @@ type FormData = z.infer<typeof formSchema>;
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -32,35 +31,33 @@ export function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    setSubmitError(null);
 
     try {
-      await emailjs.send(
-        emailConfig.serviceId,
-        emailConfig.templateId,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone_number: data.phone,
-          message: data.message,
-          to_name: contactConfig.companyName,
-          reply_to: data.email,
-        },
-        emailConfig.publicKey
-      );
+      await sendEmail({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+      });
       
-      setSubmitSuccess(true);
+      toast.success('Bericht succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
       reset();
+      
+      setTimeout(() => {
+        navigate('/tot-snel');
+      }, 1000);
     } catch (error) {
-      console.error("Error sending email:", error);
-      setSubmitError("Er is iets misgegaan bij het versturen van uw bericht. Probeer het later opnieuw of neem telefonisch contact op.");
+      console.error("Error sending form:", error);
+      toast.error('Er is iets misgegaan bij het versturen van uw bericht. Probeer het later opnieuw.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="bg-white py-24">
+    <>
+      <Toaster position="top-center" />
+      <section id="contact" className="bg-white py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -162,24 +159,10 @@ export function ContactForm() {
                 )}
               </button>
             </div>
-
-            {submitSuccess && (
-              <div className="rounded-md bg-green-50 p-4">
-                <p className="text-sm text-green-800">
-                  Bedankt voor uw bericht! We nemen zo spoedig mogelijk contact met
-                  u op.
-                </p>
-              </div>
-            )}
-
-            {submitError && (
-              <div className="rounded-md bg-red-50 p-4">
-                <p className="text-sm text-red-600">{submitError}</p>
-              </div>
-            )}
           </form>
         </div>
       </div>
     </section>
+    </>
   );
 }
