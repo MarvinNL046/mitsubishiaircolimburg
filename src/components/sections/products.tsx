@@ -8,33 +8,33 @@ const products = {
       image: '/images/ZS-wandunit_11zon.webp',
       description: 'Fluisterstille werking met uitstekende energie-efficiëntie',
       features: ['19dB fluisterstil', 'A+++ energielabel', 'WiFi besturing'],
-      price: 'Vanaf €1.899,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Daikin Emura',
       image: '/images/ZS-wandunit-metallic-zwart_11zon.webp',
       description: 'Design wandunit met premium afwerking',
       features: ['Stijlvol design', 'Flash Streamer', '3D luchtstroom'],
-      price: 'Vanaf €2.499,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Daikin Stylish',
       image: '/images/ZS-wandunit-wit-zwart_11zon.webp',
       description: 'Compact en krachtig met moderne uitstraling',
       features: ['Compact design', 'Coanda effect', 'Intelligente sensor'],
-      price: 'Vanaf €2.299,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Daikin Perfera',
       description: 'Topmodel met hoogste comfort en efficiency',
       features: ['Hoogste efficiency', 'Luchtzuivering', 'Vloerverwarming'],
-      price: 'Vanaf €2.799,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Daikin Ururu Sarara',
       description: 'Unieke bevochtiging en ontvochtiging',
       features: ['Be-/ontvochtiging', 'Luchtzuivering', 'Premium comfort'],
-      price: 'Vanaf €3.299,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   lg: [
@@ -42,13 +42,13 @@ const products = {
       name: 'LG ArtCool',
       description: 'Kunstzinnig design met picture frame',
       features: ['Picture frame', 'WiFi control', 'Dual inverter'],
-      price: 'Vanaf €2.199,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'LG DualCool Premium',
       description: 'Krachtige koeling met energiebesparing',
       features: ['10 jaar garantie', 'Plasmaster ionizer', 'Low noise'],
-      price: 'Vanaf €1.799,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   samsung: [
@@ -56,13 +56,13 @@ const products = {
       name: 'Samsung WindFree',
       description: 'Koeling zonder directe luchtstroom',
       features: ['WindFree technologie', 'AI Auto Cooling', 'SmartThings'],
-      price: 'Vanaf €2.399,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Samsung Luzon',
       description: 'Betaalbare kwaliteit voor elk budget',
       features: ['Fast cooling', 'Good Sleep mode', 'Auto clean'],
-      price: 'Vanaf €1.599,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   mitsubishi: [
@@ -70,7 +70,7 @@ const products = {
       name: 'Mitsubishi Heavy Industries',
       description: 'Japanse kwaliteit en betrouwbaarheid',
       features: ['Silent mode', 'Weekly timer', 'Allergen filter'],
-      price: 'Vanaf €1.999,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   toshiba: [
@@ -78,25 +78,25 @@ const products = {
       name: 'Toshiba Haori',
       description: 'Textiel afwerking voor elk interieur',
       features: ['Textiel design', 'HEPA filter', 'Quiet mode'],
-      price: 'Vanaf €2.699,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Toshiba Daiseikai',
       description: 'Hoogste energie-efficiëntie',
       features: ['A+++ label', 'Plasma filter', 'WiFi ready'],
-      price: 'Vanaf €2.099,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Toshiba Kazumi',
       description: 'Modern design met krachtige prestaties',
       features: ['Sleek design', 'Eco mode', 'Timer functie'],
-      price: 'Vanaf €1.899,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Toshiba Seiya',
       description: 'Instapmodel met goede prijs-kwaliteit',
       features: ['Betrouwbaar', 'Eenvoudige bediening', 'Energiezuinig'],
-      price: 'Vanaf €1.499,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   tosot: [
@@ -104,19 +104,19 @@ const products = {
       name: 'Tosot Pular',
       description: 'Uitstekende prijs-kwaliteitverhouding',
       features: ['WiFi control', 'Sleep mode', 'Turbo functie'],
-      price: 'Vanaf €1.299,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Tosot Clivia',
       description: 'Stijlvol en betaalbaar',
       features: ['Modern design', 'Quiet operation', 'Energy saving'],
-      price: 'Vanaf €1.399,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Tosot Cosmo',
       description: 'Premium model met extra functies',
       features: ['I-Feel functie', 'Self-cleaning', 'Golden fin'],
-      price: 'Vanaf €1.599,-'
+      ctaText: 'Vraag offerte aan'
     }
   ],
   mobiel: [
@@ -124,13 +124,13 @@ const products = {
       name: 'LG Mobiele Airco',
       description: 'Verplaatsbare koeling waar u het nodig heeft',
       features: ['Geen installatie', 'Plug & play', 'Dual inverter'],
-      price: 'Vanaf €699,-'
+      ctaText: 'Vraag offerte aan'
     },
     {
       name: 'Tosot Mobiele Airco',
       description: 'Betaalbare mobiele klimaatoplossing',
       features: ['Compact design', 'Timer functie', 'Afstandsbediening'],
-      price: 'Vanaf €499,-'
+      ctaText: 'Vraag offerte aan'
     }
   ]
 };
@@ -223,15 +223,12 @@ export function Products() {
                   ))}
                 </ul>
 
-                <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold text-orange-600">
-                    {product.price}
-                  </p>
+                <div className="flex items-center justify-center">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600 font-medium"
+                    className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 w-full justify-center"
                   >
-                    Info aanvragen
+                    {product.ctaText}
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
