@@ -1,17 +1,27 @@
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/email';
 
-export interface EmailData {
-  name: string;
-  email: string;
-  phone: string;
-  city?: string;
-  message: string;
-}
+// GHL Webhook Configuration
+const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/k90zUH3RgEQLfj7Yc55b/webhook-trigger/54670718-ea44-43a1-a81a-680ab3d5f67f";
 
+// Debug mode (set to false in production)
 const DEBUG_MODE = false;
 
-const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/k90zUH3RgEQLfj7Yc55b/webhook-trigger/54670718-ea44-43a1-a81a-680ab3d5f67f";
+// EmailJS Configuration references available in emailConfig
+
+export interface EmailData {
+  name?: string;
+  email?: string;
+  phone?: string;
+  city?: string;
+  message?: string;
+  from_name?: string;
+  from_email?: string;
+  service?: string;
+  location?: string;
+  to_name?: string;
+  source?: string;
+}
 
 const sendViaEmailJS = async (data: EmailData): Promise<boolean> => {
   try {
@@ -20,12 +30,15 @@ const sendViaEmailJS = async (data: EmailData): Promise<boolean> => {
     }
 
     const templateParams = {
-      from_name: data.name,
-      from_email: data.email,
-      phone_number: data.phone,
-      message: data.message,
-      to_name: 'Mitsubishi Airco Limburg',
-      reply_to: data.email,
+      from_name: data.from_name || data.name || '',
+      from_email: data.from_email || data.email || '',
+      phone_number: data.phone || '',
+      message: data.message || '',
+      to_name: data.to_name || 'StayCool Airco Limburg',
+      reply_to: data.from_email || data.email || '',
+      service: data.service || '',
+      location: data.location || data.city || '',
+      source: data.source || ''
     };
 
     const response = await emailjs.send(
@@ -56,11 +69,13 @@ const sendToWebhook = async (data: EmailData): Promise<boolean> => {
 
     const webhookData = {
       data: {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        city: data.city || '',
-        message: data.message
+        name: data.from_name || data.name || '',
+        email: data.from_email || data.email || '',
+        phone: data.phone || '',
+        city: data.location || data.city || '',
+        message: data.message || '',
+        service: data.service || '',
+        source: data.source || ''
       }
     };
 

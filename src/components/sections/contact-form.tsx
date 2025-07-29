@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
-import { sendEmail } from "@/utils/email";
+import { sendEmail, trackFormSubmission } from "@/utils/email-webhook";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -38,9 +38,11 @@ export function ContactForm() {
         email: data.email,
         phone: data.phone,
         message: data.message,
+        source: 'Contact Form Page'
       });
       
       toast.success('Bericht succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.');
+      trackFormSubmission('contact_form', true);
       reset();
       
       setTimeout(() => {
@@ -49,6 +51,7 @@ export function ContactForm() {
     } catch (error) {
       console.error("Error sending form:", error);
       toast.error('Er is iets misgegaan bij het versturen van uw bericht. Probeer het later opnieuw.');
+      trackFormSubmission('contact_form', false);
     } finally {
       setIsSubmitting(false);
     }
