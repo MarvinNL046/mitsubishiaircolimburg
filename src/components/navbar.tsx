@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Calendar } from 'lucide-react';
 import { contactConfig } from '../config/contact';
 
 export function Navbar() {
@@ -49,6 +49,21 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+              
+              {/* Appointment Button */}
+              <a
+                href={contactConfig.appointmentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+                  isScrolled 
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white' 
+                    : 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm'
+                }`}
+              >
+                <Calendar className="h-4 w-4" />
+                Plan Afspraak
+              </a>
               
               {/* WhatsApp Button */}
               <a
@@ -105,6 +120,15 @@ export function Navbar() {
               ))}
               
               <div className="pt-3 space-y-3 border-t">
+                <a
+                  href={contactConfig.appointmentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium"
+                >
+                  <Calendar className="h-5 w-5" />
+                  Plan Afspraak
+                </a>
                 <a
                   href={`https://wa.me/${contactConfig.whatsappClean}`}
                   target="_blank"

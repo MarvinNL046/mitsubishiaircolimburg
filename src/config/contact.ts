@@ -5,6 +5,7 @@ export const contactConfig = {
   whatsapp: "0636481054",
   whatsappClean: "31636481054",
   email: "info@staycoolairco.nl",
+  appointmentUrl: "https://afspraken.staycoolairco.nl/",
   address: {
     street: "Aan de Bogen 11",
     postalCode: "6118 AS",

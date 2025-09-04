@@ -1,4 +1,4 @@
-import { Phone, ArrowRight, Clock, Shield } from 'lucide-react';
+import { Phone, ArrowRight, Clock, Shield, Calendar } from 'lucide-react';
 import { contactConfig } from '../config/contact';
 
 interface CTABannerProps {
@@ -41,11 +41,13 @@ export function CTABanner({
                 Bel Direct
               </a>
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-800 transition-all"
+                href={contactConfig.appointmentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-all transform hover:scale-105"
               >
-                Gratis Offerte
-                <ArrowRight className="h-5 w-5" />
+                <Calendar className="h-5 w-5" />
+                Plan Afspraak Online
               </a>
             </div>
           </div>
@@ -68,10 +70,19 @@ export function CTABanner({
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
+              href={contactConfig.appointmentUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
+            >
+              <Calendar className="h-5 w-5" />
+              Plan Direct Afspraak
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
             >
-              Start Uw Aanvraag
+              Offerte Aanvragen
               <ArrowRight className="h-5 w-5" />
             </a>
             <a

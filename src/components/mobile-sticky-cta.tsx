@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle, Calendar } from 'lucide-react';
 import { contactConfig } from '../config/contact';
 
 export function MobileStickyCTA() {
@@ -29,13 +29,22 @@ export function MobileStickyCTA() {
       }`}
     >
       <div className="bg-white border-t shadow-2xl">
-        <div className="grid grid-cols-2 divide-x">
+        <div className="grid grid-cols-3 divide-x">
           <a
             href={`tel:${contactConfig.phoneClean}`}
             className="flex items-center justify-center gap-2 py-4 bg-orange-500 text-white font-semibold active:bg-orange-600"
           >
-            <Phone className="h-5 w-5" />
-            <span>Bel Direct</span>
+            <Phone className="h-4 w-4" />
+            <span className="text-sm">Bel</span>
+          </a>
+          <a
+            href={contactConfig.appointmentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 py-4 bg-blue-500 text-white font-semibold active:bg-blue-600"
+          >
+            <Calendar className="h-4 w-4" />
+            <span className="text-sm">Afspraak</span>
           </a>
           <a
             href={`https://wa.me/${contactConfig.whatsappClean}`}
@@ -43,8 +52,8 @@ export function MobileStickyCTA() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 py-4 bg-green-500 text-white font-semibold active:bg-green-600"
           >
-            <MessageCircle className="h-5 w-5" />
-            <span>WhatsApp</span>
+            <MessageCircle className="h-4 w-4" />
+            <span className="text-sm">WhatsApp</span>
           </a>
         </div>
       </div>

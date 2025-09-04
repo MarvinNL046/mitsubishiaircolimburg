@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Star, CheckCircle, Clock, Shield } from 'lucide-react';
+import { Phone, Star, CheckCircle, Clock, Shield, Calendar } from 'lucide-react';
 import { contactConfig } from '../../config/contact';
 import { sendEmail, trackFormSubmission } from '../../utils/email-webhook';
 import toast, { Toaster } from 'react-hot-toast';
@@ -164,10 +164,13 @@ export function HeroNew() {
                 Bel {contactConfig.phone}
               </a>
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-xl"
+                href={contactConfig.appointmentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-xl"
               >
-                Gratis Offerte Aanvragen
+                <Calendar className="h-5 w-5" />
+                Plan Direct Afspraak
               </a>
             </div>
           </div>
