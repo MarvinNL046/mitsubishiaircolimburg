@@ -42,11 +42,12 @@ export function ContactNew() {
       setSubmitStatus('success');
       toast.success('Bedankt! We nemen binnen 24 uur contact met u op.');
       trackFormSubmission('contact_new', true);
-      
+      setFormData({ name: '', email: '', phone: '', service: '', location: '', message: '' });
+
+      // Redirect to thank you page after showing success message
       setTimeout(() => {
-        setFormData({ name: '', email: '', phone: '', service: '', location: '', message: '' });
-        setSubmitStatus('idle');
-      }, 3000);
+        window.location.href = 'https://staycoolairco.nl/tot-snel';
+      }, 1500);
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
